@@ -40,6 +40,8 @@ public class Consumer extends Thread
     topicCountMap.put(topic, 1);
     Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumer.createMessageStreams(topicCountMap);
     KafkaStream<byte[], byte[]> stream =  consumerMap.get(topic).get(0);
-    for (MessageAndMetadata<byte[], byte[]> aStream : stream) System.out.println(new String(aStream.message()));
+    for (MessageAndMetadata<byte[], byte[]> aStream : stream) {
+      System.out.println(new String(aStream.message()));
+    }
   }
 }
